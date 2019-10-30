@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <title>Slide Show</title>
+
+
+
+<script>
+var currentSlide = 1;
+
+function goToSlide(n)
+{
+    
+    var x;
+    var slides = document.getElementsByTagName("img");
+    var buttons = document.getElementsByClassName("num");
+    
+    if (n > slides.length)
+        {currentSlide = 1;}
+    if (n < 1)
+        {currentSlide = slides.length;}
+    
+    for(x =0;x<slides.length;x++)
+        {slides[x].style.display="none";}
+    
+    for(x=0;x<buttons.length;x++)
+        {buttons[x].className = buttons[x].className.replace(" selected", " ");}
+    
+    slides[currentSlide-1].style.display = "block";
+    buttons[currentSlide-1].className += " selected";
+    currentSlide = n;
+}
+function current(n)
+{
+    goToSlide(currentSlide = n);
+}
+function goPrev()
+{
+    var nextSlide = currentSlide - 1
+    if(nextSlide == 0){
+      nextSlide = 4;
+    }
+    current(nextSlide);
+}
+function goNext()
+{
+  var nextSlide = currentSlide + 1
+  if(nextSlide == 5){
+    nextSlide = 1;
+  }
+  current(nextSlide);
+}
+</script>
+
+<style>
+body{
+  margin:0;
+}
+#prev{
+  position:fixed;
+  left: 10px;
+  bottom: 10px;
+}
+#next{
+  position:fixed;
+  right: 10px;
+  bottom: 10px;
+}
+img{
+  display: block;
+  position:absolute;
+  width: 100%;
+}
+.selected{
+  background: gold;
+}
+#numWrapper{
+  width: calc(100% - 200px);
+    bottom: 10px;
+    position: fixed;
+    margin-left: 100px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body onload='current(1)'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Aegotheles_chrisoptus_-_Catlereigh_Nature_Reserve.jpg/300px-Aegotheles_chrisoptus_-_Catlereigh_Nature_Reserve.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Turnix_varius_-_Castlereigh_nature_reserve.jpg/450px-Turnix_varius_-_Castlereigh_nature_reserve.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg/450px-Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg/450px-Eopsaltria_australis_-_Mogo_Campground.jpg'>
+  <button id='prev' onclick='goPrev()'> Prev </button>
+  <button id='next' onclick='goNext()'> Next </button>
+
+  <div id='numWrapper'>
+    <button class='num' onclick='current(1)'> 1 </button>
+    <button class='num' onclick='current(2)'> 2 </button>
+    <button class='num' onclick='current(3)'> 3 </button>
+    <button class='num' onclick='current(4)'> 4 </button>
+  </div>
+</html>
