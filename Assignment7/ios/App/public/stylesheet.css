@@ -1,0 +1,75 @@
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .75em .75em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.75em -.75em 0;
+    padding: .75em;
+    background-color: purple;
+    color: white;
+}
+
+	
+
+details[open] {
+    padding: .75em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .75em;
+}
+
+p
+{
+	padding: 15px;
+	color: #301934;
+	font-size: 20px;
+}
+
+td, th
+{
+	border: 1px solid purple;
+	padding: 8px;
+	font-size: 20px;
+}
+
+tr:nth-child(even)
+{
+	background-color: #C8A2C8;
+	
+}
+
+tr:hover 
+{
+		background-color: purple;
+		color:white;
+}
+
+li {
+	border-bottom: 1px solid gray;
+	font-size: 20px;
+	padding: 15px 15px 20px 120px;
+	position: relative;
+}
+
+li:last-child {
+	border-bottom: none;
+}
+
+ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	counter-reset: ordered-list;
+}
+
+li
+{
+	list-style-type:none;
+}
+
+	

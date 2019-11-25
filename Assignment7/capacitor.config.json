@@ -1,0 +1,7 @@
+{
+  "appId": "com.lmAssignment7.app",
+  "appName": "lmAssignment7",
+  "bundledWebRuntime": true,
+  "npmClient": "yarn",
+  "webDir": "www"
+}
